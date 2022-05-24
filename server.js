@@ -1,4 +1,5 @@
 const express = require('express');
+const PORT = process.env.PORT || 3001;
 const app = express();
 const { animals } = require('./data/animals');
 
@@ -23,7 +24,7 @@ function filterByQuery(query, animalsArray) {
         // For each trait being targeted by the filter, the filteredResults
         // array will then contain only the entries that contain the trait,
         // so at the end we'll have an array of animals that have every one 
-        // of the traits when the .forEach() loop is finished.
+        // of the traits when the .forEach() loop is finished.noodlegenie00!
         filteredResults = filteredResults.filter(
           animal => animal.personalityTraits.indexOf(trait) !== -1
         );
@@ -49,6 +50,6 @@ function filterByQuery(query, animalsArray) {
     }
     res.json(results);
   });
-app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
+  app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
   });
